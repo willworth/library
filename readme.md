@@ -2,6 +2,9 @@
 
 This is yet another node express app.  I'm just learning!
 
+The below are my follow along notes... I hope to remove/improve these when the app is finished, 
+so if you're reading this, it's probably a work in progress!
+
 npm install --save packagename
 
 package mgmt
