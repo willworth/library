@@ -15,11 +15,13 @@ app.use(express.static(path.join(__dirname, '/public/')));
 app.use('/css', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(__dirname, '/node_modules/jquery/dist')));
-app.set('views', '.src/views');
+app.set('views', 'src/views');
+// app.set('views', path.join(__dirname, 'views'));  // this is the wesbos way...
 app.set('view engine', 'pug')
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/index.html'));
+  // res.render('index', { title: 'MyLibrary' });
+  res.render('index', { title: 'MyLibrary', list: ['a', 'b'] });
 });
 
 
@@ -31,7 +33,7 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   // ES6 TEMPLATE LITERALS
   // console.log(`listening on port ${chalk.green('3000')}`);
-  debug(`listening on port ${chalk.green('http://localhost:',port)}`);
+  debug(`listening on port ${chalk.green('http://localhost:', port)}`);
   // console.log(`listening on  ${chalk.green('http://localhost:3000')}`);
   // #TODO console.log('listening on port', port);
 });
