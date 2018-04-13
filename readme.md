@@ -7,6 +7,9 @@ so if you're reading this, it's probably a work in progress!
 
 npm install --save packagename
 
+npm install -g packagename
+is global
+
 package mgmt
 
 ^4.13.3
@@ -23,3 +26,13 @@ debug only runs when you're running in... debug mode
 
 to switch on (in windows) (*nix    DEBUG=* node app.js)
 set DEBUG=* & node app.js
+
+eslint --init
+npm scripts in package.json assumes local install of packages- as opposed to global
+
+anything other than test or start require
+npm run  ***scriptname***
+
+http://node.green/
+
+ctrl F2 for multi cursor after double clicking on one instance
