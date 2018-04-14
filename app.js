@@ -7,6 +7,7 @@ const morgan = require('morgan');
 
 const app = express();
 const path = require('path'); // built in!
+const bookRouter = express.Router();
 
 
 // app.use(morgan('combined'));
@@ -19,9 +20,54 @@ app.set('views', 'src/views');
 // app.set('views', path.join(__dirname, 'views'));  // this is the wesbos way...
 app.set('view engine', 'ejs')
 
+const books=[
+  {
+    title: 'War and Peace',
+    genre: 'Historical Fiction',
+    author: 'Leo Tolstoy',
+    read: false
+  },
+  {
+    title: 'title2',
+    genre: 'genre2',
+    author: 'author2',
+    read: false
+  },
+  {
+    title: 'title3',
+    genre: 'genre3',
+    author: 'author3',
+    read: true
+  },
+];
+bookRouter.route('/books')
+  .get((req, res) => {
+    res.render('books', {
+      //  nav: ['Books', 'Authors'],
+      nav: [
+        { link: '/books', title: 'Books' },
+        { link: '/authors', title: 'Authors' }
+      ],
+      title: 'Library',
+      books
+    });
+  });
+
+app.use('/', bookRouter);
+
 app.get('/', (req, res) => {
-  // res.render('index', { title: 'MyLibrary' });
-  res.render('index', { title: 'MyLibrary', list: ['a', 'b'] });
+  // res.render('index', { title: 'Library' });
+  res.render(
+    'index',
+    {
+      //  nav: ['Books', 'Authors'],
+      nav: [
+        { link: '/books', title: 'Books' },
+        { link: '/authors', title: 'Authors' }
+      ],
+      title: 'Library'
+    }
+  );
 });
 
 

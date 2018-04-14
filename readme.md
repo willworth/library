@@ -36,3 +36,8 @@ npm run  ***scriptname***
 http://node.green/
 
 ctrl F2 for multi cursor after double clicking on one instance
+
+eslintrc.js gives examples of how to turn rules on or off.
+0 ignored
+1 warn
+2 error
