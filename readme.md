@@ -27,6 +27,10 @@ debug only runs when you're running in... debug mode
 to switch on (in windows) (*nix    DEBUG=* node app.js)
 set DEBUG=* & node app.js
 
+
+test
+    "start": "DEBUG=app nodemon app.js",
+test
 eslint --init
 npm scripts in package.json assumes local install of packages- as opposed to global
 
